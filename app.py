@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index/')
 def index():
-    return 'Здесь будет главная'
+    return render_template('index.html')
 
 #Направления
 @app.route('/departures/<departure>/')
