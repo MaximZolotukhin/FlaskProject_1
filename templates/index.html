@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Russia Travel</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -35,6 +36,93 @@
            </div>
        </nav>
     </header>
-
+    <main class="container mt-3">
+        <!-- HERO -->
+        <section class="jumbotron jumbotron_css text-center mt-4">
+            <h1 class="display-4">Всякие туры</h1>
+            <p class="lead">Для тех, кого отвлекают дома</p>
+            <p class="mt-5 w-50 mx-auto">Лучшие направления,где никто не будет вам мешать сидеть на берегу и изучать
+                программирование, дизайн, разработку игр и управление продуктами</p>
+        </section>
+        <!-- CARDS -->
+        <div class="row mt-5">
+            <div class="col-4">
+                <div class="card mb-4">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <img class="card-img-top embed-responsive-item" src="{{ url_for('static', filename='img/amari-phuket-with-sha.jpg') }}" alt="" />
+                    </div>
+                    <div class="card-body">
+                        <h2 class="h5 card-title">Тайланд: Амари Корал Бич Пхукет</h2>
+                        <p class="card-text">Ищете элитный курорт в Патонге? Можете больше не искать. Амари Корал Бич Пхукет подойдет вам наилучшим образом.</p>
+                        <a href="https://www.tripadvisor.ru/Hotel_Review-g297930-d305178-Reviews-Amari_Phuket-Patong_Kathu_Phuket.html" class="btn btn-sm btn-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+{#            <!-- Доработать тут#}
+{#             <div class="col-4">#}
+{#                <div class="card mb-4">#}
+{#                    <div class="embed-responsive embed-responsive-16by9">#}
+{#                        <img class="card-img-top embed-responsive-item" src="{{ url_for('static', filename='img/300x200.gif') }}" alt="" />#}
+{#                    </div>#}
+{#                    <div class="card-body">#}
+{#                        <h2 class="h5 card-title">Hotel title</h2>#}
+{#                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+{#                        <a href="#" class="btn btn-sm btn-primary">Подробнее</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#             <div class="col-4">#}
+{#                <div class="card mb-4">#}
+{#                    <div class="embed-responsive embed-responsive-16by9">#}
+{#                        <img class="card-img-top embed-responsive-item" src="{{ url_for('static', filename='img/300x200.gif') }}" alt="" />#}
+{#                    </div>#}
+{#                    <div class="card-body">#}
+{#                        <h2 class="h5 card-title">Hotel title</h2>#}
+{#                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+{#                        <a href="#" class="btn btn-sm btn-primary">Подробнее</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#             <div class="col-4">#}
+{#                <div class="card mb-4">#}
+{#                    <div class="embed-responsive embed-responsive-16by9">#}
+{#                        <img class="card-img-top embed-responsive-item" src="{{ url_for('static', filename='img/300x200.gif') }}" alt="" />#}
+{#                    </div>#}
+{#                    <div class="card-body">#}
+{#                        <h2 class="h5 card-title">Hotel title</h2>#}
+{#                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+{#                        <a href="#" class="btn btn-sm btn-primary">Подробнее</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#             <div class="col-4">#}
+{#                <div class="card mb-4">#}
+{#                    <div class="embed-responsive embed-responsive-16by9">#}
+{#                        <img class="card-img-top embed-responsive-item" src="{{ url_for('static', filename='img/300x200.gif') }}" alt="" />#}
+{#                    </div>#}
+{#                    <div class="card-body">#}
+{#                        <h2 class="h5 card-title">Hotel title</h2>#}
+{#                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+{#                        <a href="#" class="btn btn-sm btn-primary">Подробнее</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#             <div class="col-4">#}
+{#                <div class="card mb-4">#}
+{#                    <div class="embed-responsive embed-responsive-16by9">#}
+{#                        <img class="card-img-top embed-responsive-item" src="{{ url_for('static', filename='img/300x200.gif') }}" alt="" />#}
+{#                    </div>#}
+{#                    <div class="card-body">#}
+{#                        <h2 class="h5 card-title">Hotel title</h2>#}
+{#                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>#}
+{#                        <a href="#" class="btn btn-sm btn-primary">Подробнее</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>-->#}
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
