@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=E:\!!!Проф обучение Python\flaskProject_1\venv
+set VIRTUAL_ENV=E:\!!!Проф обучение Python\#3 Flask_Stepic\01.flask_travel_site\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

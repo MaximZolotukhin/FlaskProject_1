@@ -5,3 +5,23 @@ section .jumbotron_css{
     background-position: center center
 }
 
+.date_stars_info {
+    margin-top: 10px;
+    font-weight: 600;
+    justify-content: space-between;
+}
+
+.stars {
+    font-weight: 600;
+    float: right;
+}
+
+.stars_icon{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}
+
+.info_hotel{
+    float: left;
+}

@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Russia Travel</title>
+    <title>{{ title }}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,23 +15,14 @@
            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
            </button>
+       <!-- ********************************Меню********************************* -->
            <div class="collapse navbar-collapse" id="navbarNav">
                <ul class="navbar-nav">
+                   {% for menu in departures.values() %}
                    <li class="nav-item active">
-                      <a class="nav-link" href="#">Из Москвы</a>
+                      <a class="nav-link" href="#">{{ menu }}</a>
                    </li>
-                   <li class="nav-item">
-                        <a class="nav-link" href="#">Из Петербурга</a>
-                   </li>
-                   <li class="nav-item">
-                        <a class="nav-link" href="#">Из Новосибирска</a>
-                   </li>
-                   <li class="nav-item">
-                        <a class="nav-link" href="#">Из Екатеринбурга</a>
-                   </li>
-                   <li class="nav-item">
-                        <a class="nav-link" href="#">Из Казани</a>
-                   </li>
+                   {% endfor %}
                </ul>
            </div>
        </nav>
@@ -40,84 +31,28 @@
         <!-- HERO -->
         <section class="jumbotron jumbotron_css text-center mt-4">
             <h1 class="display-4">Всякие туры</h1>
-            <p class="lead">Для тех, кого отвлекают дома</p>
-            <p class="mt-5 w-50 mx-auto">Лучшие направления,где никто не будет вам мешать сидеть на берегу и изучать
-                программирование, дизайн, разработку игр и управление продуктами</p>
+            <p class="lead">{{ subtitle }}</p>
+            <p class="mt-5 w-50 mx-auto">{{ description }}</p>
         </section>
         <!-- CARDS -->
         <div class="row mt-5">
+            {% for item in tours.values() %}
             <div class="col-4">
                 <div class="card mb-4">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <img class="card-img-top embed-responsive-item" src="{{ url_for('static', filename='img/amari-phuket-with-sha.jpg') }}" alt="" />
+                        <img class="card-img-top embed-responsive-item" src="{{ item.picture }}" alt="" />
                     </div>
                     <div class="card-body">
-                        <h2 class="h5 card-title">Тайланд: Амари Корал Бич Пхукет</h2>
-                        <p class="card-text">Ищете элитный курорт в Патонге? Можете больше не искать. Амари Корал Бич Пхукет подойдет вам наилучшим образом.</p>
+                        <h2 class="h5 card-title">{{ item.country }}: {{ item.title }}</h2>
+                        <p class="card-text">{{ item.description | truncate(90) }}</p>
                         <a href="https://www.tripadvisor.ru/Hotel_Review-g297930-d305178-Reviews-Amari_Phuket-Patong_Kathu_Phuket.html" class="btn btn-sm btn-primary">Подробнее</a>
+                        <div class="date_stars_info">
+                            <p class="info_hotel">{{ item.date }}, {{ item.nights }} дней, {{ item.price }} Р</p> <p class="stars">{{ item.stars }} <img class="stars_icon" src="{{ url_for('static', filename='icons/star_point_icon.svg') }}" alt="" /></p>
+                        </div>
                     </div>
                 </div>
             </div>
-             <div class="col-4">
-                <div class="card mb-4">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <img class="card-img-top embed-responsive-item" src="{{ url_for('static', filename='img/vietnam.jpg') }}" alt="" />
-                    </div>
-                    <div class="card-body">
-                        <h2 class="h5 card-title">Вьетнам: La Siesta Hoi An Resort & Spa</h2>
-                        <p class="card-text">La Siesta Hoi An Resort & Spa — это отличный выбор для гостей Хойана, идиллическая атмосфера и множество полезных услуг сделают пребывание</p>
-                        <a href="https://www.tripadvisor.ru/Hotel_Review-g298082-d12250031-Reviews-La_Siesta_Hoi_An_Resort_Spa-Hoi_An_Quang_Nam_Province.html" class="btn btn-sm btn-primary">Подробнее</a>
-                    </div>
-                </div>
-            </div>
-             <div class="col-4">
-                <div class="card mb-4">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <img class="card-img-top embed-responsive-item" src="{{ url_for('static', filename='img/india.jpg') }}" alt="" />
-                    </div>
-                    <div class="card-body">
-                        <h2 class="h5 card-title">Индия: Radisson Blu Plaza Hotel Mysore</h2>
-                        <p class="card-text">Найти идеальный романтический отель в Майсуре не должно быть сложной задачей. Добро пожаловать в Radisson Blu Plaza Hotel Mysore, прекрасный</p>
-                        <a href="https://www.tripadvisor.ru/Hotel_Review-g304553-d4040823-Reviews-Radisson_Blu_Plaza_Hotel_Mysore-Mysuru_Mysore_Mysore_District_Karnataka.html" class="btn btn-sm btn-primary">Подробнее</a>
-                    </div>
-                </div>
-            </div>
-             <div class="col-4">
-                <div class="card mb-4">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <img class="card-img-top embed-responsive-item" src="{{ url_for('static', filename='img/egypet-savoy-sharm-el-sheikh.jpg') }}" alt="" />
-                    </div>
-                    <div class="card-body">
-                        <h2 class="h5 card-title">Египет: Савой Шарм-Эль-Шейх</h2>
-                        <p class="card-text">Савой Шарм-Эль-Шейх — это отличный выбор для гостей Шарм-эль-Шейха, семейная атмосфера и множество полезных услуг сделают пребывание</p>
-                        <a href="https://www.tripadvisor.ru/Hotel_Review-g297555-d464191-Reviews-Savoy_Sharm_El_Sheikh-Sharm_El_Sheikh_South_Sinai_Red_Sea_and_Sinai.html" class="btn btn-sm btn-primary">Подробнее</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="card mb-4">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <img class="card-img-top embed-responsive-item" src="{{ url_for('static', filename='img/greece.jpg') }}" alt="" />
-                    </div>
-                    <div class="card-body">
-                        <h2 class="h5 card-title">Греция: Сентидо Порт Роял Виллас & Спа</h2>
-                        <p class="card-text">Ищете, где остановиться в Колимбии? Можете больше не искать. Романтический отель Сентидо Порт Роял</p>
-                        <a href="https://www.tripadvisor.ru/Hotel_Review-g635615-d1541200-Reviews-Sentido_Port_Royal_Villas_Spa-Kolimbia_Rhodes_Dodecanese_South_Aegean.html" class="btn btn-sm btn-primary">Подробнее</a>
-                    </div>
-                </div>
-            </div>
-             <div class="col-4">
-                <div class="card mb-4">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <img class="card-img-top embed-responsive-item" src="{{ url_for('static', filename='img/altay.jpg') }}" alt="" />
-                    </div>
-                    <div class="card-body">
-                        <h2 class="h5 card-title">Россия: Altay Resort</h2>
-                        <p class="card-text">Горный Алтай – это обширная территория, которая располагается на юге Западной Сибири. Каждый путешественник сможет</p>
-                        <a href="https://www.tripadvisor.ru/Hotel_Review-g6495573-d15666965-Reviews-Altay_Resort-Urlu_Aspak_Republic_of_Altai_Siberian_District.html#/media/15666965/570145286:p/?albumid=101&type=2&category=101" class="btn btn-sm btn-primary">Подробнее</a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
