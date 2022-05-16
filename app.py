@@ -4,12 +4,23 @@ import os
 
 app = Flask(__name__)
 
-
 #Главная страница
 @app.route('/')
 @app.route('/index/')
 def index():
-    return render_template('index.html', title=title, subtitle=subtitle, description=description, departures=departures, tours=tours)
+    tours_index_page = []
+    for count, value in tours.items():
+        if count < 7:
+            tours_index_page.append(value)
+        else:
+            break
+
+    return render_template('index.html', title=title, subtitle=subtitle, description=description, departures=departures, tours=tours_index_page)
+
+
+@app.route('/departure/')
+def departure():
+    return render_template('spb.html', title=title, subtitle=subtitle, description=description, departures=departures, tours=tours)
 #
 #
 # #Направления

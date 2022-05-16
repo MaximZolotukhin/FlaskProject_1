@@ -1,32 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
+{% extends 'base.html' %}
 
-<body>
-    <header class="container mt-3">
-       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-           <a class="navbar-brand" href="#">Russia Travel</a>
-           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-           </button>
-       <!-- ********************************Меню********************************* -->
-           <div class="collapse navbar-collapse" id="navbarNav">
-               <ul class="navbar-nav">
-                   {% for menu in departures.values() %}
-                   <li class="nav-item active">
-                      <a class="nav-link" href="#">{{ menu }}</a>
-                   </li>
-                   {% endfor %}
-               </ul>
-           </div>
-       </nav>
-    </header>
+{% block content %}
     <main class="container mt-3">
         <!-- HERO -->
         <section class="jumbotron jumbotron_css text-center mt-4">
@@ -36,7 +10,7 @@
         </section>
         <!-- CARDS -->
         <div class="row mt-5">
-            {% for item in tours.values() %}
+            {% for item in tours %}
             <div class="col-4">
                 <div class="card mb-4">
                     <div class="embed-responsive embed-responsive-16by9">
@@ -55,8 +29,5 @@
             {% endfor %}
         </div>
     </main>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
-</html>
+{% endblock content %}
+
