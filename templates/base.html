@@ -10,16 +10,16 @@
 <body>
     <header class="container mt-3">
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-           <a class="navbar-brand" href="#">Russia Travel</a>
+           <a class="navbar-brand" href="{{ url_for('render_index') }}">Russia Travel</a>
            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
            </button>
        <!-- ********************************Меню********************************* -->
            <div class="collapse navbar-collapse" id="navbarNav">
                <ul class="navbar-nav">
-                   {% for menu in departures.values() %}
-                   <li class="nav-item active">
-                      <a class="nav-link" href="#">{{ menu }}</a>
+                   {% for menu_dep, menu in departures.items() %} {# Прохожу по циклу меню #}
+                   <li class="nav-item {% if request.path == url_for('render_departure', depart=menu_dep) %} active {% endif %}">
+                       <a class="nav-link" href="{{ url_for('render_departure', depart=menu_dep) }}">{{ menu }}</a> {# Возвращаю ключи страницы menu_dep и название страницы menu#}
                    </li>
                    {% endfor %}
                </ul>

@@ -10,22 +10,26 @@
         </section>
         <!-- CARDS -->
         <div class="row mt-5">
-            {% for item in tours %}
-            <div class="col-4">
-                <div class="card mb-4">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <img class="card-img-top embed-responsive-item" src="{{ item.picture }}" alt="" />
-                    </div>
-                    <div class="card-body">
-                        <h2 class="h5 card-title">{{ item.country }}: {{ item.title }}</h2>
-                        <p class="card-text">{{ item.description | truncate(90) }}</p>
-                        <a href="https://www.tripadvisor.ru/Hotel_Review-g297930-d305178-Reviews-Amari_Phuket-Patong_Kathu_Phuket.html" class="btn btn-sm btn-primary">Подробнее</a>
-                        <div class="date_stars_info">
-                            <p class="info_hotel">{{ item.date }}, {{ item.nights }} дней, {{ item.price }} Р</p> <p class="stars">{{ item.stars }} <img class="stars_icon" src="{{ url_for('static', filename='icons/star_point_icon.svg') }}" alt="" /></p>
+            {% for id, tour in tours.items() %}
+                {% if id < 10 %}
+                <div class="col-4">
+                    <div class="card mb-4">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img class="card-img-top embed-responsive-item" src="{{ tour.picture }}" alt="" />
+                        </div>
+                        <div class="card-body">
+                            <h2 class="h5 card-title">{{ tour.country }}: {{ tour.title }}</h2>
+                            <p class="card-text">{{ tour.description | truncate(90) }}</p>
+                            <a href="{{ url_for('render_tour', id=id) }}" class="btn btn-sm btn-primary">Подробнее</a>
+                            <div class="date_stars_info">
+                                <p class="info_hotel">{{ tour.date }}, {{ tour.nights }} дней, {{ tour.price }} Р</p> <p class="stars">{{ tour.stars }} <img class="stars_icon" src="{{ url_for('static', filename='icons/star_point_icon.svg') }}" alt="" /></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                {% else %}
+
+                {% endif %}
             {% endfor %}
         </div>
     </main>
