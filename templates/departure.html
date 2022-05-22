@@ -2,20 +2,14 @@
 
 {% block content %}
     <main class="container mt-3">
-        {% for key_dep, values_dep in departures.items() %} {# Прохожу по словарю departures и получаю из него ключ и знанчение #}
-        {% if departure == key_dep %}{# Смотрю чтобы перменная пераднная в поисковой строек соответвовала ключу #}
-        <h1 class="display-5 mt-4">Летим {{values_dep}}</h1>{# Отображаю полученный результат #}
-        <p class="mb-4">Найдено {{ tours | length }}, от 26 000 до 84 600 и от 4 ночей до 15 ночей</p>
-    {% endif %}{% endfor %}
+        <h1 class="display-5 mt-4">Летим {{ departures[departure] }}</h1>{# Отображаю полученный результат #}
+        <p class="mb-4">Найдено {{ tour_doct | length }}, от {{ price | min }} до {{ price | max }} и от {{ nights | min }} ночей до {{ nights | max }} ночей</p>
 <!-- CARDS -->
         <div class="row mt-5">
-        {% for id, val_tour in tours.items() %}
-        {% if val_tour.departure == departure %}
+        {% for id, val_tour in tour_doct.items() %}
             <div class="col-4">
                 <div class="card mb-4">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <img class="card-img-top embed-responsive-item" src="{{ val_tour.picture }}" alt="" />
-                    </div>
+                    <img src="{{ val_tour.picture }}" class="card-img-top img-fluid" alt="" />
                     <div class="card-body">
                         <h2 class="h5 card-title">{{ val_tour.title }}</h2>
                         <p class="card-text">{{ val_tour.description | truncate(110) }}</p>
@@ -23,8 +17,7 @@
                     </div>
                 </div>
             </div>
-        {% endif %}
+            {% endfor %}
         </div>
     </main>
-{% endfor %}
 {% endblock content %}

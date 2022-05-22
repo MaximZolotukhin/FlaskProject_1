@@ -1,13 +1,14 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, abort
 from data import title, subtitle, description, departures, tours
 import os
 
 app = Flask(__name__)
 dep_page = ''
 
-# @app.errorhandler(404)
-# def render_error_page(error):
-#     return "Ничего не нашлось! Вот неудача, отправляйтесь на главную!", error
+@app.errorhandler(404)
+def render_error_page(error):
+    return "Ничего не нашлось! Вот неудача, отправляйтесь на главную!", error
+
 
 #Главная страница
 @app.route('/')
@@ -22,16 +23,39 @@ def render_index():
 
     return render_template('index.html', title=title, subtitle=subtitle, description=description, departures=departures, tours=tours)
 
+
 #Вьюха страницы туры
 @app.route('/departure/<depart>') #<str:depar> Динамически предающаяся часть страницы
 def render_departure(depart): #Параметр для дальнейшей работы в вьюхе
-    tours_index_page = []
-    for count, value in tours.items():
-        tours_index_page.append(value)
-    print(tours_index_page)
+    price = []
+    nights = []
+    tours_index_page = {}
+    for id, value in tours.items():
+        if value['departure'] == depart:
+            tours_index_page[id] = (tours[id])
+            price.append(value['price'])
+            nights.append(value['nights'])
+    if tours_index_page:
+        return render_template('departure.html', departures=departures, departure=depart, tour_doct=tours_index_page,
+                               price=price, nights=nights)
+    else:
+        return abort(404)
 
-    return render_template('departure.html', description=description, departures=departures, tours=tours, departure=depart, tour_doct=tours_index_page)
     #depar=depar передаю переменну в шаблон для отрисовки только нужных данных
+
+
+# #Вьюха страницы туры
+# @app.route('/departure/<depart>') #<str:depar> Динамически предающаяся часть страницы
+# def render_departure(depart): #Параметр для дальнейшей работы в вьюхе
+#     tours_index_page = []
+#     for count, value in tours.items():
+#         if value['departure'] == depart:
+#             tours_index_page.append(tours[count])
+#     print(tours_index_page)
+#
+#     return render_template('departure.html', description=description, departures=departures, tours=tours, departure=depart, tour_doct=tours_index_page)
+#     #depar=depar передаю переменну в шаблон для отрисовки только нужных данных
+
 
 @app.route('/tour/<int:id>') #<str:depar> Динамически предающаяся часть страницы
 def render_tour(id): #Переменная для фильтарции

@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59608f52-aad8-4988-8347-ede9c5b4b5e4" name="Default Changelist" comment="Доработка страницы работа со словарем">
-      <change afterPath="$PROJECT_DIR$/templates/404.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/departure.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/departure.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/tour.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tour.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +47,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
@@ -100,7 +97,10 @@
       <workItem from="1652733678726" duration="2125000" />
       <workItem from="1652768127666" duration="3540000" />
       <workItem from="1652780418940" duration="18004000" />
-      <workItem from="1652895983544" duration="9239000" />
+      <workItem from="1652895983544" duration="9400000" />
+      <workItem from="1652980657827" duration="833000" />
+      <workItem from="1652986201699" duration="4330000" />
+      <workItem from="1653204900915" duration="9757000" />
     </task>
     <task id="LOCAL-00001" summary="Доработка страницы работа со словарем">
       <created>1652687954628</created>
@@ -131,7 +131,17 @@
     <MESSAGE value="Доработка страницы работа со словарем" />
     <option name="LAST_COMMIT_MESSAGE" value="Доработка страницы работа со словарем" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/version_2$01_flask_travel_site.coverage" NAME="01.flask_travel_site Coverage Results" MODIFIED="1652909247957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/version_2$01_flask_travel_site.coverage" NAME="01.flask_travel_site Coverage Results" MODIFIED="1653215609417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
